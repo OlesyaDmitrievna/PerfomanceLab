@@ -1,4 +1,5 @@
 import math
+import sys
 
 def distance(x1, y1, x2, y2):
     return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
@@ -26,11 +27,15 @@ def point_position(center_x, center_y, radius, point_x, point_y):
     else:
         return 2  # Точка снаружи окружности
 
-# Получаем данные окружности и точек из файлов
-path1 = input('Путь до файла с координатами и радиусом окружности: ')
-path2 = input('Путь до файла с координатами точек: ')
-center_x, center_y, radius = read_circle_data(path1)
-points = read_points_data(path2)
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python task2.py circle.txt points.txt")
+    else:
+        path1 = sys.argv[1] # Получаем данные окружности и точек из файлов
+        path2 = sys.argv[2]
+
+        center_x, center_y, radius = read_circle_data(path1)
+        points = read_points_data(path2)
 
 # Определяем положение каждой точки относительно окружности и выводим результат
 for point_x, point_y in points:
