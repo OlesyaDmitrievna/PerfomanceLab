@@ -6,5 +6,7 @@ def NumsTransform(path_nums):
 		median = len(numbers) // 2
 	print(sum(abs(n - numbers[median]) for n in numbers))
 
-path_nums = input('Путь до файла nums: ')
-NumsTransform(path_nums)
+import sys
+if __name__ == '__main__':
+	path_nums = sys.argv[1]
+	NumsTransform(path_nums)
