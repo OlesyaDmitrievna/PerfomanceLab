@@ -1,4 +1,5 @@
 import json
+import sys
 
 def setter(values_data, tests_data, report_path):
     results = {}
@@ -31,10 +32,13 @@ def array_parser(values, results):
 
     return values
 
-# Получаем пути к файлам json
-values_path = input('Путь до файла values: ')
-tests_path = input('Путь до файла tests: ')
-report_path = input('Путь до файла report: ')
+if __name__ == "__main__":
+    if len(sys.argv) < 4:
+        print("Usage: python task3.py values.json tests.json report.json")
+    else:
+        values_path = sys.argv[1] # Получаем пути к файлам json
+        tests_path = sys.argv[2]
+        report_path = sys.argv[3]
 
 data = {}
 with open(values_path, 'r') as file:
