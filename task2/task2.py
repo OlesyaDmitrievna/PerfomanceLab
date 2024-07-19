@@ -28,7 +28,7 @@ def point_position(center_x, center_y, radius, point_x, point_y):
         return 2  # Точка снаружи окружности
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
+    if len(sys.argv) != 3:
         print("Usage: python task2.py circle.txt points.txt")
     else:
         path1 = sys.argv[1] # Получаем данные окружности и точек из файлов
